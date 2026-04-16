@@ -49,64 +49,66 @@ new class extends Component {
 ?>
 
 <div>
+    <center>
+        @if (session()->has('success'))
+            <div style="color: green;  padding: 8px; margin-bottom: 10px;">
+                {{ session('success') }}
+            </div>
+        @endif
 
-    @if (session()->has('success'))
-        <div style="color: green;  padding: 8px; margin-bottom: 10px;">
-            {{ session('success') }}
+        @if (session()->has('error'))
+            <div style="color: red;  padding: 8px; margin-bottom: 10px;">
+                {{ session('error') }}
+            </div>
+        @endif
+        <div style="text-align: left;">
+            <form wire:submit.prevent="save" style="max-width: 400px; margin: auto;">
+
+                <!-- Name -->
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Name</label>
+                    <input type="text" wire:model="name" style="width: 100%; border: 1px solid black; padding: 8px;">
+                    @error('name')
+                        <span style="color: red; font-size: 12px;">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <!-- Mobile -->
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Mobile Number</label>
+                    <input type="number" wire:model="mobile_number"
+                        style="width: 100%; border: 1px solid black; padding: 8px;">
+                    @error('mobile_number')
+                        <span style="color: red; font-size: 12px;">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <!-- Email -->
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Email</label>
+                    <input type="email" wire:model="email"
+                        style="width: 100%; border: 1px solid black; padding: 8px;">
+                    @error('email')
+                        <span style="color: red; font-size: 12px;">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <!-- Address -->
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;">Address</label>
+                    <textarea wire:model="address" rows="3" style="width: 100%; border: 1px solid black; padding: 8px;"></textarea>
+                    @error('address')
+                        <span style="color: red; font-size: 12px;">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <!-- Button -->
+                <button type="submit"
+                    style="padding: 8px 15px; border: none; background: black; color: white; cursor: pointer;">
+                    Save Post
+                </button>
+
+            </form>
         </div>
-    @endif
-
-    @if (session()->has('error'))
-        <div style="color: red;  padding: 8px; margin-bottom: 10px;">
-            {{ session('error') }}
-        </div>
-    @endif
-
-    <form wire:submit.prevent="save" style="max-width: 400px; margin: auto;">
-
-        <!-- Name -->
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px;">Name</label>
-            <input type="text" wire:model="name" style="width: 100%; border: 1px solid black; padding: 8px;">
-            @error('name')
-                <span style="color: red; font-size: 12px;">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <!-- Mobile -->
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px;">Mobile Number</label>
-            <input type="number" wire:model="mobile_number"
-                style="width: 100%; border: 1px solid black; padding: 8px;">
-            @error('mobile_number')
-                <span style="color: red; font-size: 12px;">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <!-- Email -->
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px;">Email</label>
-            <input type="email" wire:model="email" style="width: 100%; border: 1px solid black; padding: 8px;">
-            @error('email')
-                <span style="color: red; font-size: 12px;">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <!-- Address -->
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px;">Address</label>
-            <textarea wire:model="address" rows="3" style="width: 100%; border: 1px solid black; padding: 8px;"></textarea>
-            @error('address')
-                <span style="color: red; font-size: 12px;">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <!-- Button -->
-        <button type="submit"
-            style="padding: 8px 15px; border: none; background: black; color: white; cursor: pointer;">
-            Save Post
-        </button>
-
-    </form>
-
+    </center>
 </div>
