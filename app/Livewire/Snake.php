@@ -28,23 +28,13 @@ class Snake extends Component
         $this->action = $action;
         $this->actionBackgroundColor = $actionBackgroundColor;
 
-        if ($axis === $this->xAxis) {
-
+        if ($axis) {
             if ($position === '+') {
-                $this->xPosition +=  $steps;
+                ($axis === $this->xAxis) ? $this->xPosition +=  $steps : $this->yPosition +=  $steps;
             } elseif ($position === '-') {
-                $this->xPosition -= $steps;
+                ($axis === $this->xAxis) ? $this->xPosition -= $steps : $this->yPosition -= $steps;
             } else {
                 dd('invalid position on x axis !!');
-            }
-        } elseif ($axis === $this->yAxis) {
-
-            if ($position === '+') {
-                $this->yPosition +=  $steps;
-            } elseif ($position === '-') {
-                $this->yPosition -= $steps;
-            } else {
-                dd('invalid position on y axis !!');
             }
         } else {
             dd('invalid axis not allowed !!');
