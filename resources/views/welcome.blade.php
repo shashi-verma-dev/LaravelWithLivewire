@@ -24,6 +24,8 @@
             <div class="col-8">
 
                 <livewire:user-search />
+
+                
                 <livewire:user-list />
             </div>
 
