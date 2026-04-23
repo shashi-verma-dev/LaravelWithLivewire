@@ -37,6 +37,30 @@
             <div class="col-12">
                 <livewire:apex-charts />
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
         </div>
     </div>
 
