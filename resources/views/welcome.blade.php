@@ -25,7 +25,7 @@
 
                 <livewire:user-search />
 
-                
+
                 <livewire:user-list />
             </div>
 
@@ -37,30 +37,6 @@
             <div class="col-12">
                 <livewire:apex-charts />
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
         </div>
     </div>
 
